@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../services/api.service';
 import {Beer} from '../beer';
+import {StarComponent} from '../star/star.component';
 
 @Component({
   selector: 'app-beer',
@@ -12,7 +13,7 @@ export class BeerComponent implements OnInit {
   beers: Beer[] = [];
   private headers: string[];
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private star: StarComponent) {}
 
   ngOnInit() {
     this.getBeers();

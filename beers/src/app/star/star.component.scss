@@ -1,0 +1,21 @@
+$color: #00D1B2;
+
+.star {
+  visibility:hidden;
+  font-size:30px;
+  cursor:pointer;
+  color: $color;
+}
+.star:before {
+  content: "\2605";
+  position: absolute;
+  visibility:visible;
+  top: 5%;
+  right: 10%;
+}
+.star:checked:before {
+  content: "\2606";
+  position: absolute;
+  top: 5%;
+  right: 10%;
+}
