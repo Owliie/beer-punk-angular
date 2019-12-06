@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from './services/api.service';
+import {StarComponent} from './star/star.component';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +8,10 @@ import {ApiService} from './services/api.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private appService: ApiService) {}
+  constructor(private star: StarComponent) {}
 
   title = 'Beans Love Beers';
 
   ngOnInit(): void {
-    this.appService.getBeers();
   }
 }

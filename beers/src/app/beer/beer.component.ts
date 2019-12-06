@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../services/api.service';
-import {Beer} from '../beer';
 import {StarComponent} from '../star/star.component';
+import {Beer} from '../beer';
 
 @Component({
   selector: 'app-beer',
@@ -13,7 +13,8 @@ export class BeerComponent implements OnInit {
   beers: Beer[] = [];
   private headers: string[];
 
-  constructor(private api: ApiService, private star: StarComponent) {}
+  constructor(private api: ApiService, private star: StarComponent) {
+  }
 
   ngOnInit() {
     this.getBeers();
@@ -33,6 +34,16 @@ export class BeerComponent implements OnInit {
 
       console.log(this.beers);
     });
+  }
+
+  starBeers() {
+    for (const beer of this.beers) {
+      const starId = document.getElementById(`star-${beer.id}`);
+
+      if (this.star.starred.includes(beer.id)) {
+        starId.firstElementChild.removeAttribute('checked');
+      }
+    }
   }
 
   search(value: string, $event: Event) {
