@@ -1,1 +1,18 @@
-<p>{{favourites}}</p>
+<h1 class="h1 align-content-center" *ngIf="favouritesIds == null">No beers to show :c</h1>
+
+<div class="card-columns">
+  <div *ngFor="let beer of faveBeers" class="card mb-3" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4 mx-auto text-center">
+        <img [src]="beer.image_url" class="card-img" alt="beer image">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title mr-auto"></h4>
+          <h5 class="card-title">{{beer.name}}</h5>
+          <p class="card-text trim-text">{{beer.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

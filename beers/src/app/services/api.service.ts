@@ -20,4 +20,8 @@ export class ApiService {
   getBeerByName(name: string): Observable<HttpResponse<Beer[]>> {
     return this.http.get<Beer[]>(this.path + '?beer_name=' + name, {observe: 'response'});
   }
+
+  getBeerById(id: number): Observable<HttpResponse<Beer[]>> {
+    return this.http.get<Beer[]>(this.path + '?ids=' + id, {observe: 'response'});
+  }
 }
